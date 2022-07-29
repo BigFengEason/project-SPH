@@ -30,7 +30,7 @@ mock数据（模拟数据）:如果你想mock数据，需用到一个插件mockj
 
 5)ListContainer组件开发重点？
 1.安装swiper插件：swiper5版本（npm i swiper@5）
-2.引包（响应js|css）
+2.引包（相应js|css）
 3.页面中必须有结构
 4.创建swiper实例，为其添加行为（官方文档）
 

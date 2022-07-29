@@ -19,7 +19,7 @@ this.$route.meta
 这种异常，对于程序没有任何影响的。
 为什么会出现这种现象:
 由于vue-router最新版本3.5.2，引入了promise，当传递参数多次且重复，会抛出异常，因此出现上面现象,
-第一种解决方案：是给push函数，传入相应的成功的回调与失败的回调
+第一种解决方案：是给push方法，传入相应的成功的回调与失败的回调
 this.$router.push({name:"search",params:{keyword:this.keyword},query:{this.keyword.toUpperCase()}},()=>{},()=>{})
 第一种解决方案可以暂时解决当前问题，治标不治本，但是以后再用push|replace还是会出现类似现象，因此我们需要从‘根’治病；
 
@@ -28,7 +28,7 @@ this：表示当前组件实例对象(search组件，实质是Vuecomponent实例
 this.$router属性：表示的是VueRouter的一个实例。在入口文件注册路由时，给每个组件身上都加了$route|$router属性
 this.$router.push()方法：实际上是VueRouter这个构造函数的原型对象身上的方法（即VueRouter.prototype的方法）
 VueRouter.prototype.push = function(){
-     //函数的上下文为VueRouter的一个实例（即用this.$router.push()和VueRouter.prototype.push()时，函数体内的this均指向VueRouter的一个实例，故重写push|replace方法时需要将this重新指向VueRouter）
+     //函数的上下文为VueRouter的一个实例（即用this.$router.push()和VueRouter.prototype.push()时，函数体内的this均指向VueRouter的一个实例，故重写push|replace方法时需要将this重新指向VueRouter实例）
 }
 详见路由配置
 
