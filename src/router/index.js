@@ -16,6 +16,7 @@ import store from '@/store/index'
 let originPush = VueRouter.prototype.push;
 let originReplace = VueRouter.prototype.replace;
 VueRouter.prototype.push = function (location, resolve, reject) {
+    // 此函数上下文(this指向)为VueRouter的一个实例
     if (resolve && reject) {    //如果我们自己指定了成功/失败的回调，则自己传入
         originPush.call(this, location, resolve, reject)
         //若此时直接使用originPush()方法，则函数内的this指向window（内部代码将无法执行）。故应用call或apply方法修改this指向
