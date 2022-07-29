@@ -7,7 +7,7 @@
             ]
         }
     },
-    "exclude": [
+    "exclude": [    //除了这些文件夹
         "node_modules",
         "dist"
     ]
